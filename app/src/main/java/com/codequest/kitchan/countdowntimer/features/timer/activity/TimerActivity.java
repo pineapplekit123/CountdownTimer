@@ -16,6 +16,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.codequest.kitchan.countdowntimer.R;
+import com.codequest.kitchan.countdowntimer.features.timer.PersonalInfoDialog;
 import com.codequest.kitchan.countdowntimer.features.timer.presenter.TimerPresenterImpl;
 import com.codequest.kitchan.countdowntimer.features.timer.view.TimerView;
 import com.codequest.kitchan.countdowntimer.models.TimerTask;
@@ -118,7 +119,7 @@ public class TimerActivity extends AppCompatActivity implements TimerView {
         if (!timerisStarted) {
 
             String usrInputTaskName = etTaskname.getText().toString();
-            String taskname = TextUtils.isEmpty(usrInputTaskName) ? getResources().getString(R.string.name_unknown) : usrInputTaskName;
+            String taskname = TextUtils.isEmpty(usrInputTaskName) ? getResources().getString(R.string.input_taskname_default) : usrInputTaskName;
 
             /* Known issue
                 CountdownTimer - if the time remaining is less than the interval,
@@ -136,11 +137,8 @@ public class TimerActivity extends AppCompatActivity implements TimerView {
 
     @Click(R.id.iv_info)
     protected void ivInfoClicked() {
-        //TODO: pop up personal information
-        //TODO: remove the below testing code
-        Log.d(TAG, "history string  b4 is  " +   myPrefs.timerTaskHistory().get());
-        historyHelper.clearAll();
-        Log.d(TAG, "history string is  " +   myPrefs.timerTaskHistory().get());
+        PersonalInfoDialog alert = new PersonalInfoDialog();
+        alert.showDialog(this);
     }
 
 

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="pInfo_name" translatable="false">Kit Chan</string>
+    <string name="pInfo_email" translatable="false">kitcheong@gmail.com</string>
+    <string name="pInfo_mobile" translatable="false">90483006</string>
+    <string name="pInfo_dob" translatable="false">1982-12-03</string>
+    <string name="pInfo_gender" translatable="false">Male</string>
+</resources>
