@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">CountdownTimer</string>
+    <string name="hint_input_taskname">Enter task…</string>
+    <string name="name_unknown">Unknown</string>
 </resources>

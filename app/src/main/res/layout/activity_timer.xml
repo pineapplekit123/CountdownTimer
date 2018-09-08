@@ -2,17 +2,115 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cl_parentView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".TimerActivity">
+    android:background="@drawable/bg_normal"
+    android:clickable="true"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    tools:context=".features.timer.activity.TimerActivity">
 
-    <TextView
+    <ImageView
+        android:id="@+id/iv_info"
+        android:layout_width="@dimen/size_action_icon"
+        android:layout_height="@dimen/size_action_icon"
+        android:layout_marginStart="@dimen/margin_normal"
+        android:layout_marginTop="@dimen/margin_normal"
+        android:src="@android:drawable/ic_menu_info_details"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/iv_history"
+        android:layout_width="@dimen/size_action_icon"
+        android:layout_height="@dimen/size_action_icon"
+        android:layout_marginEnd="@dimen/margin_normal"
+        android:layout_marginTop="@dimen/margin_normal"
+        android:src="@android:drawable/ic_menu_recent_history"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/et_taskname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        android:layout_marginBottom="@dimen/margin_large"
+        android:background="@null"
+        android:hint="@string/hint_input_taskname"
+        android:inputType="textPersonName"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:textColorHint="@android:color/white"
+        app:layout_constraintBottom_toTopOf="@+id/iv_timer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <requestFocus />
+    </EditText>
+
+
+    <TextView
+        android:id="@+id/tv_timer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:singleLine="true"
+        android:src="@drawable/bg_timer"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:textSize="18pt"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="25:00:00" />
+
+    <ImageView
+        android:id="@+id/iv_timer_increment"
+        android:layout_width="@dimen/size_timer_config"
+        android:layout_height="@dimen/size_timer_config"
+        android:layout_marginBottom="@dimen/margin_normal"
+        android:src="@android:drawable/arrow_up_float"
+        app:layout_constraintBottom_toTopOf="@+id/tv_timer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/iv_timer_decrement"
+        android:layout_width="@dimen/size_timer_config"
+        android:layout_height="@dimen/size_timer_config"
+        android:layout_marginTop="@dimen/margin_normal"
+        android:clickable="true"
+        android:focusable="true"
+        android:longClickable="true"
+        android:src="@android:drawable/arrow_down_float"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_timer" />
+
+    <ImageView
+        android:id="@+id/iv_startstop"
+        android:layout_width="@dimen/size_action_icon"
+        android:layout_height="@dimen/size_action_icon"
+        android:layout_marginTop="@dimen/margin_large"
+        android:src="@android:drawable/ic_media_play"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iv_timer" />
+
+    <ImageView
+        android:id="@+id/iv_timer"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:src="@drawable/bg_timer"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

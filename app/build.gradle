@@ -1,4 +1,7 @@
 apply plugin: 'com.android.application'
+def GSONVersion = '2.8.4'
+def AAVersion = '4.4.0'
+def RecyclerVersion = '27.1.1'
 
 android {
     compileSdkVersion 27
@@ -25,4 +28,8 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    annotationProcessor "org.androidannotations:androidannotations:$AAVersion"
+    implementation "org.androidannotations:androidannotations-api:$AAVersion"
+    implementation "com.google.code.gson:gson:$GSONVersion"
+    implementation "com.android.support:recyclerview-v7:$RecyclerVersion"
 }
