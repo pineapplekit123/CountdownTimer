@@ -3,7 +3,7 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
-    <color name="bg_end_normal">#FF8800</color>
+    <color name="bg_end_normal">#FFA600</color>
     <color name="bg_start_normal">#FF6200</color>
     <color name="list_item1">#FFFFFF</color>
     <color name="list_item2">#D7DBDD</color>
