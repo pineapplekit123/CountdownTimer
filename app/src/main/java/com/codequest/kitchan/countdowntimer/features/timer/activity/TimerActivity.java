@@ -16,10 +16,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.codequest.kitchan.countdowntimer.R;
-import com.codequest.kitchan.countdowntimer.Utils.StringUtils;
 import com.codequest.kitchan.countdowntimer.features.timer.presenter.TimerPresenterImpl;
 import com.codequest.kitchan.countdowntimer.features.timer.view.TimerView;
 import com.codequest.kitchan.countdowntimer.models.TimerTask;
+import com.codequest.kitchan.countdowntimer.sharedPreferences.MyPrefs_;
+import com.codequest.kitchan.countdowntimer.utils.HistoryHelper;
+import com.codequest.kitchan.countdowntimer.utils.StringUtils;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Click;
@@ -29,6 +31,7 @@ import org.androidannotations.annotations.LongClick;
 import org.androidannotations.annotations.Touch;
 import org.androidannotations.annotations.ViewById;
 import org.androidannotations.annotations.ViewsById;
+import org.androidannotations.annotations.sharedpreferences.Pref;
 
 import java.util.List;
 
@@ -55,8 +58,10 @@ public class TimerActivity extends AppCompatActivity implements TimerView {
     @ViewById(R.id.iv_startstop)
     ImageView ivTimerStartStop;
 
-    private boolean timerisStarted;
+    @Pref
+    MyPrefs_ myPrefs;
 
+    private boolean timerisStarted;
     private TimerPresenterImpl presenter;
     private static final long timerMaxCountInMilliSeconds = 10 * 1000; // 25:00:00 hh:mm:ss
     private long timeCountInMilliSeconds = timerMaxCountInMilliSeconds;
@@ -64,11 +69,14 @@ public class TimerActivity extends AppCompatActivity implements TimerView {
     private boolean mAutoIncrement = false;
     private boolean mAutoDecrement = false;
     private final long REPEAT_DELAY = 50;
+    private HistoryHelper historyHelper;
 
     @AfterViews
     protected void init() {
         presenter = new TimerPresenterImpl(this);
         updateTimerText(timeCountInMilliSeconds);
+        historyHelper = new HistoryHelper(myPrefs);
+
     }
 
     @Override
@@ -102,7 +110,7 @@ public class TimerActivity extends AppCompatActivity implements TimerView {
 
     @Override
     public void storeTask(TimerTask timerTask) {
-        //TODO: Store the timer records
+        historyHelper.addTimerRecord(timerTask);
     }
 
     @Click(R.id.iv_startstop)
@@ -129,12 +137,18 @@ public class TimerActivity extends AppCompatActivity implements TimerView {
     @Click(R.id.iv_info)
     protected void ivInfoClicked() {
         //TODO: pop up personal information
+        //TODO: remove the below testing code
+        Log.d(TAG, "history string  b4 is  " +   myPrefs.timerTaskHistory().get());
+        historyHelper.clearAll();
+        Log.d(TAG, "history string is  " +   myPrefs.timerTaskHistory().get());
     }
 
 
     @Click(R.id.iv_history)
     protected void ivHistoryClicked() {
         //TODO: go to history listing page
+
+        Log.d(TAG, "history string is  " +   myPrefs.timerTaskHistory().get());
     }
 
     @Click({R.id.iv_timer_increment, R.id.iv_timer_decrement})

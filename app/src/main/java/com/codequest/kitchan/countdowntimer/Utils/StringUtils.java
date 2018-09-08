@@ -1,4 +1,4 @@
-package com.codequest.kitchan.countdowntimer.Utils;
+package com.codequest.kitchan.countdowntimer.utils;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
