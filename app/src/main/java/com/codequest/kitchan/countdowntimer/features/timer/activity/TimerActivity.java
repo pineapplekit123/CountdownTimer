@@ -66,7 +66,7 @@ public class TimerActivity extends AppCompatActivity implements TimerView {
 
     private boolean timerisStarted;
     private TimerPresenterImpl presenter;
-    private static final long timerMaxCountInMilliSeconds = 10 * 1000; // 25:00:00 hh:mm:ss
+    private static final long timerMaxCountInMilliSeconds = 30 * 1000; // 00:00:30 hh:mm:ss
     private long timeCountInMilliSeconds = timerMaxCountInMilliSeconds;
     private Handler repeatUpdateHandler = new Handler();
     private boolean mAutoIncrement = false;
@@ -79,7 +79,6 @@ public class TimerActivity extends AppCompatActivity implements TimerView {
         presenter = new TimerPresenterImpl(this);
         updateTimerText(timeCountInMilliSeconds);
         historyHelper = new HistoryHelper(myPrefs);
-
     }
 
     @Override

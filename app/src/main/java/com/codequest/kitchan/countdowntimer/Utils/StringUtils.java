@@ -1,12 +1,12 @@
 package com.codequest.kitchan.countdowntimer.utils;
 
 import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
 public class StringUtils {
 
-    public static final SimpleDateFormat date_fmt = new SimpleDateFormat("yyyy-MM-dd");
+    public static final SimpleDateFormat date_fmt = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
 
     public static String hmsTimeFormatter(long milliSeconds) {
 
@@ -18,7 +18,7 @@ public class StringUtils {
         return hms;
     }
 
-    public static String dateToStr(Date date, SimpleDateFormat format) {
-        return format.format(date);
+    public static String longToStr(Long l, SimpleDateFormat format) {
+        return format.format(l);
     }
 }

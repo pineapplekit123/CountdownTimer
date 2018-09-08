@@ -6,6 +6,8 @@ import android.util.Log;
 import com.codequest.kitchan.countdowntimer.features.timer.view.TimerView;
 import com.codequest.kitchan.countdowntimer.models.TimerTask;
 
+import java.util.Calendar;
+
 public class TimerPresenterImpl implements TimerPresenter {
 
     private static final String TAG = TimerPresenterImpl.class.getSimpleName();
@@ -21,9 +23,10 @@ public class TimerPresenterImpl implements TimerPresenter {
 
     @Override
     public void startTimer(String taskname, final long millisInFuture, long countDownInterval) {
-
+        
         timerTask = new TimerTask.Builder()
                 .name(taskname)
+                .millisCreateTime(Calendar.getInstance().getTimeInMillis())
                 .millisInFuture(millisInFuture)
                 .build();
 

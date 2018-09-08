@@ -6,6 +6,9 @@ public class TimerTask {
     @SerializedName("n")
     private String name;
 
+    @SerializedName("ct")
+    private Long millisCreateTime;
+
     @SerializedName("ft")
     private Long millisInFuture;
 
@@ -14,6 +17,7 @@ public class TimerTask {
 
     private TimerTask(Builder builder) {
         name = builder.name;
+        millisCreateTime = builder.millisCreateTime;
         millisInFuture = builder.millisInFuture;
         setMillisUntilFinished(builder.millisUntilFinished);
     }
@@ -30,12 +34,17 @@ public class TimerTask {
         return millisUntilFinished;
     }
 
+    public Long getMillisCreateTime() {
+        return millisCreateTime;
+    }
+
     public void setMillisUntilFinished(Long millisUntilFinished) {
         this.millisUntilFinished = millisUntilFinished;
     }
 
     public static final class Builder {
         private String name;
+        private Long millisCreateTime;
         private Long millisInFuture;
         private Long millisUntilFinished;
 
@@ -44,6 +53,11 @@ public class TimerTask {
 
         public Builder name(String val) {
             name = val;
+            return this;
+        }
+
+        public Builder millisCreateTime(Long val) {
+            millisCreateTime = val;
             return this;
         }
 

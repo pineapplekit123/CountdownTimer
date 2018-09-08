@@ -42,6 +42,7 @@ public class TimerTaskHistoryAdapter extends RecyclerView.Adapter<TimerTaskHisto
         ColorDrawable rollColor = new ColorDrawable(rowColorInt);
 
         viewHolder.tvTaskname.setText(itemsData[position].getName());
+        viewHolder.tvCreationTime.setText(StringUtils.longToStr(itemsData[position].getMillisCreateTime(), StringUtils.date_fmt));
         viewHolder.tvDuration.setText(StringUtils.hmsTimeFormatter(itemsData[position].getTaskDurationmillis()));
 
         viewHolder.rlMain.setBackground(rollColor);
@@ -50,13 +51,14 @@ public class TimerTaskHistoryAdapter extends RecyclerView.Adapter<TimerTaskHisto
 
     static class ViewHolder extends RecyclerView.ViewHolder {
 
-        TextView tvTaskname, tvDuration;
+        TextView tvTaskname, tvCreationTime, tvDuration;
         RelativeLayout rlMain;
 
         ViewHolder(View itemLayoutView) {
             super(itemLayoutView);
             rlMain = itemLayoutView.findViewById(R.id.rl_main);
             tvTaskname = itemLayoutView.findViewById(R.id.tv_taskname);
+            tvCreationTime = itemLayoutView.findViewById(R.id.tv_taskcreatedTime);
             tvDuration = itemLayoutView.findViewById(R.id.tv_duration);
         }
     }
