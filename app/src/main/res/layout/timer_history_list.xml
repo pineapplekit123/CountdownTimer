@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rl_main"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/iv_timer"
+        android:layout_width="@dimen/size_action_icon"
+        android:layout_height="@dimen/size_action_icon"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        android:layout_margin="@dimen/margin_normal"
+        android:src="@android:drawable/ic_lock_idle_alarm" />
+
+    <TextView
+        android:id="@+id/tv_taskname"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/iv_timer"
+        android:layout_marginLeft="@dimen/margin_normal"
+        android:layout_marginRight="@dimen/margin_normal"
+        android:layout_marginTop="@dimen/margin_normal"
+        android:layout_toEndOf="@+id/iv_timer"
+        android:textColor="@android:color/black"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        tools:text="Task 1024" />
+
+    <TextView
+        android:id="@+id/tv_duration"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/tv_taskname"
+        android:layout_marginBottom="@dimen/margin_normal"
+        android:layout_marginLeft="@dimen/margin_normal"
+        android:layout_marginRight="@dimen/margin_normal"
+        android:layout_toEndOf="@+id/iv_timer"
+        android:textColor="@android:color/black"
+        android:textSize="22sp"
+        tools:text="00:00:12" />
+
+</RelativeLayout>

@@ -1,6 +1,7 @@
 package com.codequest.kitchan.countdowntimer.features.timer.activity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Handler;
 import android.support.constraint.ConstraintLayout;
@@ -16,6 +17,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.codequest.kitchan.countdowntimer.R;
+import com.codequest.kitchan.countdowntimer.features.history.activity.HistoryActivity_;
 import com.codequest.kitchan.countdowntimer.features.timer.PersonalInfoDialog;
 import com.codequest.kitchan.countdowntimer.features.timer.presenter.TimerPresenterImpl;
 import com.codequest.kitchan.countdowntimer.features.timer.view.TimerView;
@@ -144,9 +146,8 @@ public class TimerActivity extends AppCompatActivity implements TimerView {
 
     @Click(R.id.iv_history)
     protected void ivHistoryClicked() {
-        //TODO: go to history listing page
-
-        Log.d(TAG, "history string is  " +   myPrefs.timerTaskHistory().get());
+        Intent intent = new Intent(this, HistoryActivity_.class);
+        startActivity(intent);
     }
 
     @Click({R.id.iv_timer_increment, R.id.iv_timer_decrement})
